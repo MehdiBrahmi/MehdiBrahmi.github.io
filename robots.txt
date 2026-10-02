@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mehdibrahmi.github.io/sitemap.xml
