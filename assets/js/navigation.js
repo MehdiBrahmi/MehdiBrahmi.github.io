@@ -8,21 +8,14 @@ export function initializeActiveNavigation() {
     const headerHeight = document.querySelector(".site-header").getBoundingClientRect().height;
     const activationLine = headerHeight + 48;
     let activeSectionId = null;
-    let lastVisibleSectionId = null;
 
     primaryNavLinks.forEach((link) => {
       const section = document.querySelector(link.getAttribute("href"));
       const bounds = section.getBoundingClientRect();
-      const headingBounds = section.querySelector("h2").getBoundingClientRect();
       if (bounds.top <= activationLine && bounds.bottom > activationLine) {
         activeSectionId = section.id;
       }
-      if (headingBounds.top < window.innerHeight && headingBounds.bottom > headerHeight) {
-        lastVisibleSectionId = section.id;
-      }
     });
-
-    activeSectionId = lastVisibleSectionId || activeSectionId;
 
     if (!activeSectionId && primaryNavLinks.some((link) => link.hash === window.location.hash)) {
       activeSectionId = window.location.hash.slice(1);
