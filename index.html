@@ -1,1 +1,1085 @@
-Hello World
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <meta name="description" content="Mehdi Brahmi, Tech Lead mobile chez ADEO à Lille. Android, Kotlin, Jetpack Compose, Kotlin Multiplatform et Flutter.">
+  <title>Mehdi Brahmi - Tech Lead mobile</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --ink: #d8eee4;
+      --muted: #9ab5a9;
+      --paper: #070b0a;
+      --surface: #0d1512;
+      --line: #244538;
+      --blue: #57d6c4;
+      --green: #55f2a1;
+      --content: 1120px;
+      --radius: 6px;
+      --section-space: 70px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      padding-bottom: 62px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      font-size: 16px;
+      line-height: 1.7;
+      text-rendering: optimizeLegibility;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: absolute;
+      z-index: 10;
+      top: 12px;
+      left: 12px;
+      transform: translateY(-160%);
+      border-radius: 8px;
+      padding: 10px 14px;
+      background: var(--green);
+      color: #07100b;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .site-header {
+      position: sticky;
+      z-index: 5;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgb(7 11 10 / 94%);
+      backdrop-filter: blur(12px);
+    }
+
+    .header-inner,
+    main,
+    .footer-inner {
+      width: min(var(--content), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .header-inner {
+      display: flex;
+      min-height: 76px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--ink);
+      font-weight: 720;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .brand::before {
+      color: var(--green);
+      content: "$";
+    }
+
+    .header-tools,
+    .primary-nav,
+    .language-switch {
+      display: flex;
+      align-items: center;
+    }
+
+    .header-tools {
+      gap: 28px;
+    }
+
+    .primary-nav {
+      gap: 24px;
+    }
+
+    .primary-nav a {
+      color: var(--muted);
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .primary-nav a:hover {
+      color: var(--ink);
+    }
+
+    .primary-nav a[aria-current="location"] {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--green);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 7px;
+    }
+
+    .language-switch {
+      gap: 3px;
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 3px;
+      background: var(--surface);
+    }
+
+    .language-switch button {
+      min-width: 38px;
+      min-height: 32px;
+      border: 0;
+      border-radius: 3px;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font: inherit;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .language-switch button[aria-pressed="true"] {
+      background: var(--green);
+      color: #07100b;
+    }
+
+    main {
+      padding-top: 30px;
+    }
+
+    .hero {
+      margin-top: 20px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 34px 34px var(--section-space);
+      background: var(--surface);
+    }
+
+    .hero + .section {
+      border-top: 0;
+    }
+
+    .hero::before {
+      display: block;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+      color: var(--green);
+      content: "mehdi@portfolio:~$ whoami";
+      font-size: 13px;
+    }
+
+    .hero > div {
+      max-width: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: none;
+      margin-bottom: 24px;
+      font-size: clamp(32px, 4vw, 48px);
+      font-weight: 690;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+
+    .hero-copy {
+      max-width: none;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 21px);
+      line-height: 1.6;
+    }
+
+    .section {
+      padding-block: var(--section-space);
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      margin-bottom: 38px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 18px;
+      font-size: clamp(32px, 4vw, 46px);
+      font-weight: 650;
+      letter-spacing: 0;
+      line-height: 1.1;
+    }
+
+    .section-heading h2::before {
+      display: inline-block;
+      vertical-align: .2em;
+      line-height: 1;
+      color: var(--green);
+      content: "$\00a0";
+      font-size: .7em;
+      font-weight: 400;
+    }
+
+    .section-heading p {
+      margin-bottom: 2px;
+      color: var(--muted);
+    }
+
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .expertise-card {
+      min-height: 215px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 25px;
+      background: var(--surface);
+      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .card-number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      margin-bottom: 26px;
+      border-radius: 4px;
+      background: #13251c;
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 750;
+      transition: transform 180ms ease, background-color 180ms ease, color 180ms ease;
+    }
+
+    .expertise-card h3 {
+      margin-bottom: 9px;
+      color: var(--green);
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    .expertise-card p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .skills-panel {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .skill {
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 7px 13px;
+      background: transparent;
+      color: var(--ink);
+      font-size: 13px;
+      transition: transform 160ms ease, border-color 160ms ease, color 160ms ease;
+    }
+
+    a.skill {
+      text-decoration: none;
+    }
+
+    .skill::before {
+      color: var(--green);
+      content: "# ";
+    }
+
+    .experience-layout {
+      display: block;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .timeline::before {
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 50%;
+      width: 1px;
+      background: var(--line);
+      content: "";
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 0 0 34px;
+    }
+
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .timeline-marker {
+      display: block;
+      flex: 0 0 11px;
+      width: 11px;
+      height: 11px;
+      margin: 0;
+      border: 2px solid var(--paper);
+      border-radius: 50%;
+      background: var(--green);
+    }
+
+    .timeline-item:first-child .timeline-marker {
+      box-shadow: 0 0 0 1px var(--green);
+    }
+
+    .timeline-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 11px minmax(0, 1fr);
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .timeline-role {
+      display: flex;
+      min-width: 0;
+      grid-column: 1 / 3;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 18px;
+    }
+
+    .timeline-role h3 {
+      min-width: 0;
+      margin-bottom: 0;
+      font-size: 19px;
+      font-weight: 650;
+      letter-spacing: 0;
+      line-height: 1.2;
+      text-align: right;
+      transition: color 180ms ease;
+    }
+
+    .timeline-meta {
+      grid-column: 3;
+      align-self: center;
+      padding-left: 18px;
+      margin-bottom: 0;
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.2;
+    }
+
+    .timeline-item > p,
+    .timeline-item > .project-list {
+      margin-left: calc(50% + 24px);
+    }
+
+    .timeline-item > p {
+      max-width: calc(50% - 24px);
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .timeline-item > p + p {
+      margin-top: 12px;
+    }
+
+    .project-list {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .project-list li::marker {
+      color: var(--green);
+    }
+
+    .interests {
+      display: block;
+    }
+
+    .interests h2 {
+      margin-bottom: 18px;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 650;
+    }
+
+    .interests h2::before {
+      color: var(--green);
+      content: "# ";
+      font-weight: 400;
+    }
+
+    .interests p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      position: fixed;
+      z-index: 4;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      border-top: 1px solid var(--line);
+      background: rgb(7 11 10 / 94%);
+      backdrop-filter: blur(12px);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      min-height: 56px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .footer-inner a {
+      color: var(--green);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .expertise-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--green);
+        box-shadow: 0 10px 28px rgb(85 242 161 / 9%);
+      }
+
+      .expertise-card:hover .card-number {
+        transform: scale(1.08);
+        background: var(--green);
+        color: var(--paper);
+      }
+
+      .skill:hover {
+        transform: translateY(-2px);
+        border-color: var(--green);
+        color: var(--green);
+      }
+
+      .timeline-item:hover h3 {
+        color: var(--green);
+      }
+
+      .footer-inner a:hover {
+        color: var(--blue);
+      }
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 800px) {
+      .header-inner,
+      main,
+      .footer-inner {
+        width: min(100% - 36px, var(--content));
+      }
+
+      .header-tools {
+        gap: 16px;
+      }
+
+      .primary-nav {
+        gap: 14px;
+      }
+
+      .primary-nav a {
+        font-size: 13px;
+      }
+
+      .hero {
+        padding: 28px 28px var(--section-space);
+      }
+
+      .expertise-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+    }
+
+    @media (max-width: 620px) {
+      html {
+        scroll-padding-top: 70px;
+      }
+
+      .header-inner,
+      main,
+      .footer-inner {
+        width: calc(100% - 32px);
+      }
+
+      .header-inner {
+        min-height: 66px;
+        gap: 12px;
+      }
+
+      .brand {
+        gap: 9px;
+        font-size: 14px;
+      }
+
+      .header-tools {
+        gap: 10px;
+      }
+
+      .primary-nav {
+        gap: 12px;
+      }
+
+      .primary-nav a {
+        font-size: 12px;
+      }
+
+      .primary-nav a:last-child {
+        display: none;
+      }
+
+      .language-switch button {
+        min-width: 32px;
+        min-height: 29px;
+        font-size: 11px;
+      }
+
+      main {
+        padding-top: 6px;
+      }
+
+      .hero {
+        padding: 22px 22px var(--section-space);
+      }
+
+      h1 {
+        font-size: clamp(32px, 11vw, 48px);
+      }
+
+      .hero-copy {
+        font-size: 18px;
+      }
+
+      .section {
+        --section-space: 54px;
+      }
+
+      .timeline {
+        padding-left: 28px;
+      }
+
+      .timeline::before {
+        left: 6px;
+      }
+
+      .timeline-heading {
+        grid-template-columns: 11px minmax(0, 1fr);
+        grid-template-rows: auto auto;
+        column-gap: 17px;
+        row-gap: 3px;
+      }
+
+      .timeline-role {
+        grid-column: 1 / 3;
+        grid-row: 1;
+        margin-left: -28px;
+        justify-content: flex-start;
+        gap: 17px;
+      }
+
+      .timeline-role h3 {
+        text-align: left;
+      }
+
+      .timeline-marker {
+        order: -1;
+      }
+
+      .timeline-meta {
+        grid-column: 2;
+        grid-row: 2;
+        align-self: start;
+        padding-left: 0;
+      }
+
+      .timeline-item > p,
+      .timeline-item > .project-list {
+        max-width: none;
+        margin-left: 0;
+      }
+
+      .section-heading { margin-bottom: 28px; }
+
+      .expertise-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .expertise-card {
+        min-height: 0;
+        padding: 21px;
+      }
+
+      .card-number {
+        margin-bottom: 18px;
+      }
+
+      .experience-layout {
+        gap: 32px;
+      }
+
+      .footer-inner {
+        min-height: 56px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .header-inner {
+        gap: 6px;
+      }
+
+      .brand {
+        gap: 4px;
+        font-size: 11px;
+      }
+
+      .primary-nav {
+        gap: 8px;
+      }
+
+      .primary-nav a {
+        font-size: 9px;
+      }
+
+      .header-tools {
+        gap: 6px;
+      }
+
+      .primary-nav {
+        gap: 5px;
+      }
+
+      .primary-nav a {
+        font-size: 10px;
+      }
+
+      .language-switch button {
+        min-width: 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" data-i18n="skipLink">Aller au contenu</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Mehdi Brahmi, accueil" data-i18n-aria="brandHome">
+        <span>Mehdi Brahmi</span>
+      </a>
+      <div class="header-tools">
+        <nav class="primary-nav" aria-label="Navigation principale" data-i18n-aria="mainNav">
+          <a href="#expertise" data-i18n="navExpertise">Expertise</a>
+          <a href="#parcours" data-i18n="navExperience">Parcours</a>
+          <a href="#enseignement" data-i18n="navTeaching">Enseignement</a>
+        </nav>
+        <div class="language-switch" role="group" aria-label="Langue du site" data-i18n-aria="languageSwitcher">
+          <button type="button" data-language="fr" aria-pressed="true">FR</button>
+          <button type="button" data-language="en" aria-pressed="false">EN</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title" data-i18n="heroTitle">Tech Lead mobile</h1>
+        <p class="hero-copy" data-i18n="heroCopy">Après un parcours en développement Android et Kotlin, j'occupe aujourd'hui le poste de Tech Lead mobile chez ADEO. Mes missions couvrent l'évolution, l'architecture et les choix techniques des applications Flutter du groupe, en tenant compte de l'expérience client. Elles comprennent aussi des sujets transverses avec les autres équipes et une veille sur les évolutions techniques d'Android et d'iOS, ainsi que sur les nouvelles expériences mobiles proposées par Google et Apple.</p>
+      </div>
+    </section>
+
+    <section class="section" id="expertise" aria-labelledby="expertise-title">
+      <div class="section-heading">
+        <h2 id="expertise-title" data-i18n="expertiseTitle">Compétences</h2>
+        <p data-i18n="expertiseIntro">Mon expérience porte principalement sur le développement Android et Flutter, avec une pratique d'iOS dans des projets multiplateformes.</p>
+      </div>
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">01</span>
+          <h3 data-i18n="skillLeadTitle">Encadrement technique</h3>
+          <p data-i18n="skillLeadCopy">Choix d'architecture, revues de code et accompagnement quotidien des développeurs.</p>
+        </article>
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">02</span>
+          <h3 data-i18n="skillAndroidTitle">Android et Kotlin</h3>
+          <p data-i18n="skillAndroidCopy">Parcours commencé dans le développement Android, avec plusieurs années d'expérience en Kotlin et Jetpack Compose.</p>
+        </article>
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">03</span>
+          <h3 data-i18n="skillMultiTitle">Flutter</h3>
+          <p data-i18n="skillMultiCopy">La refonte Flutter est terminée ; les applications évoluent désormais sur une base de code partagée entre enseignes et pays.</p>
+        </article>
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">04</span>
+          <h3 data-i18n="skillAiTitle">IA</h3>
+          <p data-i18n="skillAiCopy">Agents IA guidés par des plans clairs : migration de code, fonctionnalités, tests unitaires et outils internes de traduction.</p>
+        </article>
+      </div>
+      <div class="skills-panel" aria-label="Technologies et outils" data-i18n-aria="technologies">
+        <a class="skill" href="https://flutter.dev/" target="_blank" rel="noopener noreferrer">Flutter</a>
+        <a class="skill" href="https://kotlinlang.org/" target="_blank" rel="noopener noreferrer">Kotlin</a>
+        <a class="skill" href="https://developer.android.com/" target="_blank" rel="noopener noreferrer">Android</a>
+        <a class="skill" href="https://developer.apple.com/ios/" target="_blank" rel="noopener noreferrer">iOS</a>
+        <a class="skill" href="https://developer.android.com/jetpack/compose" target="_blank" rel="noopener noreferrer">Jetpack Compose</a>
+        <a class="skill" href="https://kotlinlang.org/docs/multiplatform.html" target="_blank" rel="noopener noreferrer">Kotlin Multiplatform</a>
+        <a class="skill" href="https://dev.java/" target="_blank" rel="noopener noreferrer">Java</a>
+        <a class="skill" href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer">Spring Boot</a>
+        <a class="skill" href="https://docs.spring.io/spring-framework/reference/web/webflux.html" target="_blank" rel="noopener noreferrer">Spring WebFlux</a>
+        <a class="skill" href="https://github.com/features/actions" target="_blank" rel="noopener noreferrer">GitHub Actions</a>
+        <a class="skill" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
+        <a class="skill" href="https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering" target="_blank" rel="noopener noreferrer" data-i18n="promptTag">Prompts</a>
+        <a class="skill" href="https://docs.github.com/en/copilot/concepts/agents/about-agent-skills" target="_blank" rel="noopener noreferrer">Skills</a>
+      </div>
+    </section>
+
+    <section class="section" id="parcours" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <h2 id="experience-title" data-i18n="experienceTitle">Expérience professionnelle</h2>
+        <p data-i18n="experienceIntro">Développement web (front-end et back-end) à partir de 2009, puis développement mobile à partir de 2012.</p>
+      </div>
+      <div class="experience-layout">
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3 data-i18n="adeoRole">Tech Lead mobile</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta" data-i18n="adeoMeta">ADEO, mars 2025 à aujourd'hui</p>
+            </div>
+            <p data-i18n="adeoCopy">Responsable de la refonte Flutter de l'application Leroy Merlin et de la création de nouvelles applications pour Tecnomat, Obramat, Bricoman et Bricocenter, reposant sur une base de code et des composants partagés.</p>
+            <p data-i18n="adeoScale">Déployées dans 5 pays, ces applications comptent plus de 12 millions de porteurs. Le périmètre comprend également leur évolution, leur architecture et les choix techniques associés, ainsi que des sujets transverses menés en collaboration avec les autres équipes du groupe.</p>
+            <p data-i18n="adeoInitiatives">Initiation et pilotage du projet Inner Source du Design System Flutter d'ADEO, avec contribution au développement, maintenance et coordination des contributions.</p>
+            <p data-i18n="adeoComponentProjects">Création de plusieurs projets intégrant des bibliothèques de composants Flutter réutilisables à l'échelle des projets du groupe.</p>
+            <p data-i18n="adeoForms">Mise en place d'un moteur de formulaires dynamiques permettant de générer automatiquement l'interface à partir d'un JSON fourni par le back-end.</p>
+            <p data-i18n="adeoAiSolutions">Intégration de solutions d'IA destinées aux clients, notamment Paint My Wall, qui permet de visualiser directement dans une pièce le rendu d'une peinture à partir du pot sélectionné.</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3 data-i18n="universityRole">Enseignant vacataire</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta" data-i18n="universityMeta">Université de Lille, 2023 à 2026</p>
+            </div>
+            <p data-i18n="universityCopy">TD du module TAC (Technologies pour Applications Connectées) en Master 1 E-Services, sur Kotlin et Android Jetpack Compose. Encadrement, correction et évaluation des projets étudiants.</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3 data-i18n="leroyRole">Tech Lead mobile</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta" data-i18n="leroyMeta">Leroy Merlin, août 2021 à mars 2025</p>
+            </div>
+            <p data-i18n="leroyCopy">Développement de l'application e-commerce mobile et encadrement de l'équipe Android. Contribution à son déploiement dans plusieurs pays. Création d'une bibliothèque Kotlin Multiplatform utilisée par les applications Android et iOS pour mutualiser le code métier.</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3 data-i18n="norsysRole">Ingénieur expert technique</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta" data-i18n="norsysMeta">Norsys, avril 2012 à août 2021</p>
+            </div>
+            <p data-i18n="norsysIntro">Quelques projets notables :</p>
+            <ul class="project-list">
+              <li data-i18n="norsysAmeli">AMELI (Assurance Maladie) : développement de la V1 de l'application mobile.</li>
+              <li data-i18n="norsysBecquet">Becquet : application Android développée en un mois à partir du code de l'application iOS.</li>
+              <li data-i18n="norsysSuisses">3Suisses : applications e-commerce pour smartphone et tablette.</li>
+              <li data-i18n="norsysSwitfi">Switfi : application immobilière avec un moteur de questions-réponses basé sur un arbre de décision.</li>
+              <li data-i18n="norsysVivinter">Vivinter : architecture Android en Kotlin, selon les recommandations Material Design de Google.</li>
+            </ul>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3 data-i18n="proxiadRole">Ingénieur d'étude et de développement</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta" data-i18n="proxiadMeta">Proxiad, septembre 2009 à avril 2012</p>
+            </div>
+            <p data-i18n="proxiadCopy">Maintenance et évolution d'applications web, en frontend et backend, pour des clients dans le commerce, la banque et le crédit.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="enseignement" aria-labelledby="teaching-title">
+      <div class="section-heading">
+        <h2 id="teaching-title" data-i18n="teachingTitle">Enseignement</h2>
+        <p data-i18n="teachingReflection">L'enseignement m'a aidé à prendre confiance à l'oral et à être plus à l'aise face à un groupe. J'ai particulièrement apprécié le partage de connaissances et l'accompagnement des étudiants dans leurs projets ; contribuer à leur progression donnait du sens à cette expérience.</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="interests-title">
+      <div class="interests">
+        <h2 id="interests-title" data-i18n="interestsTitle">En dehors du code</h2>
+        <p data-i18n="interestsCopy">J'aime construire et collectionner les LEGO. J'aime voyager, découvrir d'autres cultures et leurs histoires. J'ai pratiqué le hockey sur glace pendant 11 ans et je continue à suivre ce sport. Les nouvelles technologies et l'art contemporain font également partie de mes centres d'intérêt.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span data-i18n="footerLocation">Lille, France</span>
+      <a href="https://www.linkedin.com/in/mehdi-brahmi/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    const translations = {
+      fr: {
+        pageTitle: "Mehdi Brahmi - Tech Lead mobile",
+        pageDescription: "Mehdi Brahmi, Tech Lead mobile chez ADEO à Lille. Android, Kotlin, Jetpack Compose, Kotlin Multiplatform et Flutter.",
+        skipLink: "Aller au contenu",
+        mainNav: "Navigation principale",
+        languageSwitcher: "Langue du site",
+        brandHome: "Mehdi Brahmi, accueil",
+        navExpertise: "Expertise",
+        navExperience: "Parcours",
+        navTeaching: "Enseignement",
+        heroTitle: "Tech Lead mobile",
+        heroCopy: "Après un parcours en développement Android et Kotlin, j'occupe aujourd'hui le poste de Tech Lead mobile chez ADEO. Mes missions couvrent l'évolution, l'architecture et les choix techniques des applications Flutter du groupe, en tenant compte de l'expérience client. Elles comprennent aussi des sujets transverses avec les autres équipes et une veille sur les évolutions techniques d'Android et d'iOS, ainsi que sur les nouvelles expériences mobiles proposées par Google et Apple.",
+        expertiseTitle: "Compétences",
+        expertiseIntro: "Mon expérience porte principalement sur le développement Android et Flutter, avec une pratique d'iOS dans des projets multiplateformes.",
+        skillLeadTitle: "Encadrement technique",
+        skillLeadCopy: "Choix d'architecture, revues de code et accompagnement quotidien des développeurs.",
+        skillAndroidTitle: "Android et Kotlin",
+        skillAndroidCopy: "Parcours commencé dans le développement Android, avec plusieurs années d'expérience en Kotlin et Jetpack Compose.",
+        skillMultiTitle: "Flutter",
+        skillMultiCopy: "La refonte Flutter est terminée ; les applications évoluent désormais sur une base de code partagée entre enseignes et pays.",
+        skillAiTitle: "IA",
+        skillAiCopy: "Agents IA guidés par des plans clairs : migration de code, fonctionnalités, tests unitaires et outils internes de traduction.",
+        technologies: "Technologies et outils",
+        promptTag: "Prompts",
+        experienceTitle: "Expérience professionnelle",
+        experienceIntro: "Développement web (front-end et back-end) à partir de 2009, puis développement mobile à partir de 2012.",
+        adeoRole: "Tech Lead mobile",
+        adeoMeta: "ADEO, mars 2025 à aujourd'hui",
+        adeoCopy: "Responsable de la refonte Flutter de l'application Leroy Merlin et de la création de nouvelles applications pour Tecnomat, Obramat, Bricoman et Bricocenter, reposant sur une base de code et des composants partagés.",
+        adeoScale: "Déployées dans 5 pays, ces applications comptent plus de 12 millions de porteurs. Le périmètre comprend également leur évolution, leur architecture et les choix techniques associés, ainsi que des sujets transverses menés en collaboration avec les autres équipes du groupe.",
+        adeoInitiatives: "Initiation et pilotage du projet Inner Source du Design System Flutter d'ADEO, avec contribution au développement, maintenance et coordination des contributions.",
+        adeoComponentProjects: "Création de plusieurs projets intégrant des bibliothèques de composants Flutter réutilisables à l'échelle des projets du groupe.",
+        adeoForms: "Mise en place d'un moteur de formulaires dynamiques permettant de générer automatiquement l'interface à partir d'un JSON fourni par le back-end.",
+        adeoAiSolutions: "Intégration de solutions d'IA destinées aux clients, notamment Paint My Wall, qui permet de visualiser directement dans une pièce le rendu d'une peinture à partir du pot sélectionné.",
+        universityRole: "Enseignant vacataire",
+        universityMeta: "Université de Lille, 2023 à 2026",
+        universityCopy: "TD du module TAC (Technologies pour Applications Connectées) en Master 1 E-Services, sur Kotlin et Android Jetpack Compose. Encadrement, correction et évaluation des projets étudiants.",
+        teachingTitle: "Enseignement",
+        teachingReflection: "L'enseignement m'a aidé à prendre confiance à l'oral et à être plus à l'aise face à un groupe. J'ai particulièrement apprécié le partage de connaissances et l'accompagnement des étudiants dans leurs projets ; contribuer à leur progression donnait du sens à cette expérience.",
+        leroyRole: "Tech Lead mobile",
+        leroyMeta: "Leroy Merlin, août 2021 à mars 2025",
+        leroyCopy: "Développement de l'application e-commerce mobile et encadrement de l'équipe Android. Contribution à son déploiement dans plusieurs pays. Création d'une bibliothèque Kotlin Multiplatform utilisée par les applications Android et iOS pour mutualiser le code métier.",
+        norsysRole: "Ingénieur expert technique",
+        norsysMeta: "Norsys, avril 2012 à août 2021",
+        norsysIntro: "Quelques projets notables :",
+        norsysAmeli: "AMELI (Assurance Maladie) : développement de la V1 de l'application mobile.",
+        norsysBecquet: "Becquet : application Android développée en un mois à partir du code de l'application iOS.",
+        norsysSuisses: "3Suisses : participation au développement du tunnel de commande (backend et frontend) et des applications e-commerce mobile et tablette.",
+        norsysSwitfi: "Switfi : application immobilière avec un moteur de questions-réponses basé sur un arbre de décision.",
+        norsysVivinter: "Vivinter : architecture Android en Kotlin, selon les recommandations Material Design de Google.",
+        proxiadRole: "Ingénieur d'étude et de développement",
+        proxiadMeta: "Proxiad, septembre 2009 à avril 2012",
+        proxiadCopy: "Maintenance et évolution d'applications web, en frontend et backend, pour le Crédit Agricole (banque), Auchan (grande distribution) et Cofidis (crédit).",
+        interestsTitle: "En dehors du code",
+        interestsCopy: "J'aime construire et collectionner les LEGO. J'aime voyager, découvrir d'autres cultures et leurs histoires. J'ai pratiqué le hockey sur glace pendant 11 ans et je continue à suivre ce sport. Les nouvelles technologies et l'art contemporain font également partie de mes centres d'intérêt.",
+        footerLocation: "Lille, France",
+      },
+      en: {
+        pageTitle: "Mehdi Brahmi - Mobile Tech Lead",
+        pageDescription: "Mehdi Brahmi, Mobile Tech Lead at ADEO in Lille. Android, Kotlin, Jetpack Compose, Kotlin Multiplatform and Flutter.",
+        skipLink: "Skip to content",
+        mainNav: "Main navigation",
+        languageSwitcher: "Site language",
+        brandHome: "Mehdi Brahmi, home",
+        navExpertise: "Expertise",
+        navExperience: "Experience",
+        navTeaching: "Teaching",
+        heroTitle: "Mobile Tech Lead",
+        heroCopy: "With a background in Android and Kotlin development, I am now Mobile Tech Lead at ADEO. My work covers the evolution, architecture and technical direction of the group's Flutter apps, with the customer experience in mind. It also includes cross-team initiatives and keeping up with technical developments in Android and iOS, as well as new mobile experiences from Google and Apple.",
+        expertiseTitle: "Skills",
+        expertiseIntro: "My experience focuses mainly on Android and Flutter, with iOS work on cross-platform projects.",
+        skillLeadTitle: "Technical leadership",
+        skillLeadCopy: "Architecture decisions, code reviews and day-to-day support for developers.",
+        skillAndroidTitle: "Android and Kotlin",
+        skillAndroidCopy: "Started in Android development, with several years of experience in Kotlin and Jetpack Compose.",
+        skillMultiTitle: "Flutter",
+        skillMultiCopy: "The Flutter rewrite is complete; the apps continue to evolve on a shared codebase across brands and countries.",
+        skillAiTitle: "AI",
+        skillAiCopy: "AI agents guided by clear plans: code migration, features, unit tests and internal translation tools.",
+        technologies: "Technologies and tools",
+        promptTag: "Prompts",
+        experienceTitle: "Professional experience",
+        experienceIntro: "Web development (front end and back end) from 2009, followed by mobile development from 2012.",
+        adeoRole: "Mobile Tech Lead",
+        adeoMeta: "ADEO, March 2025 to present",
+        adeoCopy: "Responsible for rebuilding the Leroy Merlin app in Flutter and creating new apps for Tecnomat, Obramat, Bricoman and Bricocenter, all based on shared code and components.",
+        adeoScale: "Deployed in five countries, these apps have more than 12 million users. The scope also includes their ongoing development, architecture and technical decisions, as well as cross-team initiatives delivered in collaboration with other teams across the group.",
+        adeoInitiatives: "Initiated and led ADEO's Flutter Design System inner-source project, contributing to development and maintenance while coordinating contributions.",
+        adeoComponentProjects: "Created several projects integrating Flutter component libraries reusable across the group's projects.",
+        adeoForms: "Implemented a dynamic form engine that automatically generates the interface from JSON provided by a backend.",
+        adeoAiSolutions: "Integrated customer-facing AI solutions, including Paint My Wall, which lets customers preview the selected paint directly in a room.",
+        universityRole: "Adjunct lecturer",
+        universityMeta: "University of Lille, 2023 to 2026",
+        universityCopy: "Tutorials for the TAC module (Technologies pour Applications Connectées) in the first-year Master's E-Services program, covering Kotlin and Android Jetpack Compose. Supervised, reviewed and graded student projects.",
+        teachingTitle: "Teaching",
+        teachingReflection: "Teaching at the University of Lille helped me grow more confident and at ease when speaking to a group. I particularly enjoyed sharing knowledge and supporting students with their projects; contributing to their progress made the experience meaningful.",
+        leroyRole: "Mobile Technical Lead",
+        leroyMeta: "Leroy Merlin, August 2021 to March 2025",
+        leroyCopy: "Developed the consumer e-commerce app and supported the Android team. Contributed to its launch in several countries and created a Kotlin Multiplatform library used by the Android and iOS apps to share business logic.",
+        norsysRole: "Technical Expert Engineer",
+        norsysMeta: "Norsys, April 2012 to August 2021",
+        norsysIntro: "Selected projects:",
+        norsysAmeli: "AMELI (French national health insurance): built the first version of the mobile app.",
+        norsysBecquet: "Becquet: built the Android app in one month from the existing iOS codebase.",
+        norsysSuisses: "3Suisses: worked on the checkout flow (back end and front end) and on the mobile and tablet e-commerce apps.",
+        norsysSwitfi: "Switfi: home-buying app with a question-and-answer engine based on a decision tree.",
+        norsysVivinter: "Vivinter: designed the Android app architecture in Kotlin, following Google's Material Design guidelines.",
+        proxiadRole: "Software Engineer",
+        proxiadMeta: "Proxiad, September 2009 to April 2012",
+        proxiadCopy: "Maintained and improved front-end and back-end web applications for Crédit Agricole (banking), Auchan (retail) and Cofidis (consumer finance).",
+        interestsTitle: "Outside of work",
+        interestsCopy: "I enjoy building and collecting LEGO. I enjoy travelling, discovering new cultures and their histories. I played ice hockey for 11 years and still follow the sport. I am also interested in new technology and contemporary art.",
+        footerLocation: "Lille, France",
+      }
+    };
+
+    function setLanguage(language) {
+      const selected = translations[language] ? language : "fr";
+      document.documentElement.lang = selected;
+      document.title = translations[selected].pageTitle;
+      document.querySelector('meta[name="description"]').content = translations[selected].pageDescription;
+
+      document.querySelectorAll("[data-i18n]").forEach((element) => {
+        const translation = translations[selected][element.dataset.i18n];
+        if (translation) {
+          element.textContent = translation;
+        }
+      });
+
+      document.querySelectorAll("[data-i18n-aria]").forEach((element) => {
+        const translation = translations[selected][element.dataset.i18nAria];
+        if (translation) {
+          element.setAttribute("aria-label", translation);
+        }
+      });
+
+      document.querySelectorAll("[data-language]").forEach((button) => {
+        button.setAttribute("aria-pressed", String(button.dataset.language === selected));
+      });
+    }
+
+    const browserLanguage = navigator.languages?.[0] || navigator.language || "fr";
+    const initialLanguage = browserLanguage.toLowerCase().startsWith("en") ? "en" : "fr";
+    document.querySelectorAll("[data-language]").forEach((button) => {
+      button.addEventListener("click", () => setLanguage(button.dataset.language));
+    });
+    setLanguage(initialLanguage);
+
+    const primaryNavLinks = [...document.querySelectorAll(".primary-nav a[href^='#']")];
+    let activeNavFrame = 0;
+
+    function updateActiveNavigation() {
+      const headerHeight = document.querySelector(".site-header").getBoundingClientRect().height;
+      const activationLine = headerHeight + 48;
+      let activeSectionId = null;
+
+      primaryNavLinks.forEach((link) => {
+        const section = document.querySelector(link.getAttribute("href"));
+        const bounds = section.getBoundingClientRect();
+        if (bounds.top <= activationLine && bounds.bottom > activationLine) {
+          activeSectionId = section.id;
+        }
+      });
+
+      primaryNavLinks.forEach((link) => {
+        if (link.hash === `#${activeSectionId}`) {
+          link.setAttribute("aria-current", "location");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    }
+
+    function scheduleActiveNavigationUpdate() {
+      if (activeNavFrame) {
+        return;
+      }
+      activeNavFrame = window.requestAnimationFrame(() => {
+        activeNavFrame = 0;
+        updateActiveNavigation();
+      });
+    }
+
+    window.addEventListener("scroll", scheduleActiveNavigationUpdate, { passive: true });
+    window.addEventListener("resize", scheduleActiveNavigationUpdate);
+    scheduleActiveNavigationUpdate();
+  </script>
+</body>
+</html>
