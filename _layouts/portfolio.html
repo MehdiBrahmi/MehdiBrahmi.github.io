@@ -35,6 +35,7 @@
         <nav class="primary-nav" aria-label="{{ site.data.translations[page.lang].mainNav | escape }}">
           <a href="#expertise">{{ site.data.translations[page.lang].navExpertise | escape }}</a>
           <a href="#parcours">{{ site.data.translations[page.lang].navExperience | escape }}</a>
+          <a href="#formation">{{ site.data.translations[page.lang].navEducation | escape }}</a>
           <a href="#enseignement">{{ site.data.translations[page.lang].navTeaching | escape }}</a>
         </nav>
         <div class="language-switch" role="group" aria-label="{{ site.data.translations[page.lang].languageSwitcher | escape }}">
@@ -168,6 +169,62 @@
           </li>
         </ol>
       </div>
+    </section>
+
+    <section class="section" id="formation" aria-labelledby="education-title">
+      <div class="section-heading">
+        <h2 id="education-title">{{ site.data.translations[page.lang].educationTitle | escape }}</h2>
+      </div>
+      <ol class="timeline education-timeline">
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].masterDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].masterYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].masterInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].licenceDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].licenceYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].licenceInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].dutDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].dutYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].dutInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].baccalaureatDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].baccalaureatYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].baccalaureatInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+      </ol>
     </section>
 
     <section class="section" id="enseignement" aria-labelledby="teaching-title">
