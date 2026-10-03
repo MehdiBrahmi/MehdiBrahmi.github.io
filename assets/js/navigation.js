@@ -5,14 +5,25 @@ export function initializeActiveNavigation() {
   let activeNavFrame = 0;
 
   function updateActiveNavigation() {
-    const headerHeight = document.querySelector(".site-header").getBoundingClientRect().height;
-    const activationLine = headerHeight + 48;
+    const header = document.querySelector(".site-header");
+    const viewportTop = header.getBoundingClientRect().bottom;
+    const viewportBottom = window.innerHeight;
     let activeSectionId = null;
+    let largestVisibleRatio = 0;
 
     primaryNavLinks.forEach((link) => {
       const section = document.querySelector(link.getAttribute("href"));
+      if (!section) {
+        return;
+      }
       const bounds = section.getBoundingClientRect();
-      if (bounds.top <= activationLine && bounds.bottom > activationLine) {
+      const visibleWidth = Math.max(0, Math.min(bounds.right, window.innerWidth) - Math.max(bounds.left, 0));
+      const visibleHeight = Math.max(0, Math.min(bounds.bottom, viewportBottom) - Math.max(bounds.top, viewportTop));
+      const sectionArea = bounds.width * bounds.height;
+      const visibleRatio = sectionArea > 0 ? (visibleWidth * visibleHeight) / sectionArea : 0;
+
+      if (visibleRatio > largestVisibleRatio) {
+        largestVisibleRatio = visibleRatio;
         activeSectionId = section.id;
       }
     });
