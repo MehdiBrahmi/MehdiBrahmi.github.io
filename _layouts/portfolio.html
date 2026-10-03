@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="{{ page.lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#070b0a">
+  <meta name="description" content="{{ site.data.translations[page.lang].pageDescription | escape }}">
+  <meta name="author" content="Mehdi Brahmi">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="alternate" hreflang="fr" href="{{ site.url }}/">
+  <link rel="alternate" hreflang="en" href="{{ site.url }}/en/">
+  <link rel="alternate" hreflang="x-default" href="{{ site.url }}/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Mehdi Brahmi">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ site.data.translations[page.lang].pageTitle | escape }}">
+  <meta property="og:description" content="{{ site.data.translations[page.lang].pageDescription | escape }}">
+  <meta property="og:locale" content="{% if page.lang == 'en' %}en_US{% else %}fr_FR{% endif %}">
+  <meta property="og:locale:alternate" content="{% if page.lang == 'en' %}fr_FR{% else %}en_US{% endif %}">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="{{ site.data.translations[page.lang].pageTitle | escape }}">
+  <meta name="twitter:description" content="{{ site.data.translations[page.lang].pageDescription | escape }}">
+  <title>{{ site.data.translations[page.lang].pageTitle | escape }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}">
+</head>
+<body>
+  <a class="skip-link" href="#main">{{ site.data.translations[page.lang].skipLink | escape }}</a>
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="{{ site.data.translations[page.lang].brandHome | escape }}">
+        <span>Mehdi Brahmi</span>
+      </a>
+      <div class="header-tools">
+        <nav class="primary-nav" aria-label="{{ site.data.translations[page.lang].mainNav | escape }}">
+          <a href="#expertise">{{ site.data.translations[page.lang].navExpertise | escape }}</a>
+          <a href="#parcours">{{ site.data.translations[page.lang].navExperience | escape }}</a>
+          <a href="#formation">{{ site.data.translations[page.lang].navEducation | escape }}</a>
+          <a href="#enseignement">{{ site.data.translations[page.lang].navTeaching | escape }}</a>
+        </nav>
+        <div class="language-switch" role="group" aria-label="{{ site.data.translations[page.lang].languageSwitcher | escape }}">
+          <a href="{{ '/' | relative_url }}" lang="fr" hreflang="fr"{% if page.lang == 'fr' %} aria-current="page"{% endif %}>FR</a>
+          <a href="{{ '/en/' | relative_url }}" lang="en" hreflang="en"{% if page.lang == 'en' %} aria-current="page"{% endif %}>EN</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div>
+        <h1 id="hero-title">{{ site.data.translations[page.lang].heroTitle | escape }}</h1>
+        <p class="hero-copy">{{ site.data.translations[page.lang].heroCopy | escape }}</p>
+      </div>
+    </section>
+
+    <section class="section" id="expertise" aria-labelledby="expertise-title">
+      <div class="section-heading">
+        <h2 id="expertise-title">{{ site.data.translations[page.lang].expertiseTitle | escape }}</h2>
+        <p>{{ site.data.translations[page.lang].expertiseIntro | escape }}</p>
+      </div>
+      <div class="expertise-grid">
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">01</span>
+          <h3>{{ site.data.translations[page.lang].skillLeadTitle | escape }}</h3>
+          <p>{{ site.data.translations[page.lang].skillLeadCopy | escape }}</p>
+        </article>
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">02</span>
+          <h3>{{ site.data.translations[page.lang].skillAndroidTitle | escape }}</h3>
+          <p>{{ site.data.translations[page.lang].skillAndroidCopy | escape }}</p>
+        </article>
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">03</span>
+          <h3>{{ site.data.translations[page.lang].skillMultiTitle | escape }}</h3>
+          <p>{{ site.data.translations[page.lang].skillMultiCopy | escape }}</p>
+        </article>
+        <article class="expertise-card">
+          <span class="card-number" aria-hidden="true">04</span>
+          <h3>{{ site.data.translations[page.lang].skillAiTitle | escape }}</h3>
+          <p>{{ site.data.translations[page.lang].skillAiCopy | escape }}</p>
+        </article>
+      </div>
+      <div class="skills-panel" aria-label="{{ site.data.translations[page.lang].technologies | escape }}">
+        <a class="skill" href="https://flutter.dev/" target="_blank" rel="noopener noreferrer">Flutter</a>
+        <a class="skill" href="https://kotlinlang.org/" target="_blank" rel="noopener noreferrer">Kotlin</a>
+        <a class="skill" href="https://developer.android.com/" target="_blank" rel="noopener noreferrer">Android</a>
+        <a class="skill" href="https://developer.apple.com/ios/" target="_blank" rel="noopener noreferrer">iOS</a>
+        <a class="skill" href="https://developer.android.com/jetpack/compose" target="_blank" rel="noopener noreferrer">Jetpack Compose</a>
+        <a class="skill" href="https://kotlinlang.org/docs/multiplatform.html" target="_blank" rel="noopener noreferrer">Kotlin Multiplatform</a>
+        <a class="skill" href="https://dev.java/" target="_blank" rel="noopener noreferrer">Java</a>
+        <a class="skill" href="https://spring.io/projects/spring-boot" target="_blank" rel="noopener noreferrer">Spring Boot</a>
+        <a class="skill" href="https://docs.spring.io/spring-framework/reference/web/webflux.html" target="_blank" rel="noopener noreferrer">Spring WebFlux</a>
+        <a class="skill" href="https://github.com/features/actions" target="_blank" rel="noopener noreferrer">GitHub Actions</a>
+        <a class="skill" href="https://github.com/features/copilot" target="_blank" rel="noopener noreferrer">GitHub Copilot</a>
+        <a class="skill" href="https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering" target="_blank" rel="noopener noreferrer">{{ site.data.translations[page.lang].promptTag | escape }}</a>
+        <a class="skill" href="https://docs.github.com/en/copilot/concepts/agents/about-agent-skills" target="_blank" rel="noopener noreferrer">Skills</a>
+      </div>
+    </section>
+
+    <section class="section" id="parcours" aria-labelledby="experience-title">
+      <div class="section-heading">
+        <h2 id="experience-title">{{ site.data.translations[page.lang].experienceTitle | escape }}</h2>
+        <p>{{ site.data.translations[page.lang].experienceIntro | escape }}</p>
+      </div>
+      <div class="experience-layout">
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3>{{ site.data.translations[page.lang].adeoRole | escape }}</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta">{{ site.data.translations[page.lang].adeoMeta | escape }}</p>
+            </div>
+            <p>{{ site.data.translations[page.lang].adeoCopy | escape }}</p>
+            <p>{{ site.data.translations[page.lang].adeoScale | escape }}</p>
+            <p>{{ site.data.translations[page.lang].adeoInitiatives | escape }}</p>
+            <p>{{ site.data.translations[page.lang].adeoComponentProjects | escape }}</p>
+            <p>{{ site.data.translations[page.lang].adeoForms | escape }}</p>
+            <p>{{ site.data.translations[page.lang].adeoAiSolutions | escape }}</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3>{{ site.data.translations[page.lang].universityRole | escape }}</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta">{{ site.data.translations[page.lang].universityMeta | escape }}</p>
+            </div>
+            <p>{{ site.data.translations[page.lang].universityCopy | escape }}</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3>{{ site.data.translations[page.lang].leroyRole | escape }}</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta">{{ site.data.translations[page.lang].leroyMeta | escape }}</p>
+            </div>
+            <p>{{ site.data.translations[page.lang].leroyCopy | escape }}</p>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3>{{ site.data.translations[page.lang].norsysRole | escape }}</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta">{{ site.data.translations[page.lang].norsysMeta | escape }}</p>
+            </div>
+            <p>{{ site.data.translations[page.lang].norsysIntro | escape }}</p>
+            <ul class="project-list">
+              <li>{{ site.data.translations[page.lang].norsysAmeli | escape }}</li>
+              <li>{{ site.data.translations[page.lang].norsysBecquet | escape }}</li>
+              <li>{{ site.data.translations[page.lang].norsysSuisses | escape }}</li>
+              <li>{{ site.data.translations[page.lang].norsysSwitfi | escape }}</li>
+              <li>{{ site.data.translations[page.lang].norsysVivinter | escape }}</li>
+            </ul>
+          </li>
+          <li class="timeline-item">
+            <div class="timeline-heading">
+              <div class="timeline-role">
+                <h3>{{ site.data.translations[page.lang].proxiadRole | escape }}</h3>
+                <span class="timeline-marker" aria-hidden="true"></span>
+              </div>
+              <p class="timeline-meta">{{ site.data.translations[page.lang].proxiadMeta | escape }}</p>
+            </div>
+            <p>{{ site.data.translations[page.lang].proxiadCopy | escape }}</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section" id="formation" aria-labelledby="education-title">
+      <div class="section-heading">
+        <h2 id="education-title">{{ site.data.translations[page.lang].educationTitle | escape }}</h2>
+      </div>
+      <ol class="timeline education-timeline">
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].masterDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].masterYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].masterInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].licenceDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].licenceYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].licenceInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].dutDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].dutYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].dutInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+        <li class="timeline-item">
+          <div class="timeline-heading">
+            <div class="timeline-role">
+              <h3>{{ site.data.translations[page.lang].baccalaureatDegree | escape }}</h3>
+              <span class="timeline-marker" aria-hidden="true"></span>
+            </div>
+            <div class="education-details">
+              <p class="timeline-meta">{{ site.data.translations[page.lang].baccalaureatYear | escape }}</p>
+              <p class="education-institution">{{ site.data.translations[page.lang].baccalaureatInstitution | escape }}</p>
+            </div>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="section" id="enseignement" aria-labelledby="teaching-title">
+      <div class="section-heading">
+        <h2 id="teaching-title">{{ site.data.translations[page.lang].teachingTitle | escape }}</h2>
+        <p>{{ site.data.translations[page.lang].teachingReflection | escape }}</p>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="interests-title">
+      <div class="interests">
+        <h2 id="interests-title">{{ site.data.translations[page.lang].interestsTitle | escape }}</h2>
+        <p>{{ site.data.translations[page.lang].interestsCopy | escape }}</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>{{ site.data.translations[page.lang].footerLocation | escape }}</span>
+      <a href="https://www.linkedin.com/in/mehdi-brahmi/" target="_blank" rel="noreferrer">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script type="module" src="{{ '/assets/js/main.js' | relative_url }}"></script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "{{ site.url }}/#mehdi-brahmi",
+    "name": "Mehdi Brahmi",
+    "url": "{{ site.url }}/",
+    "jobTitle": "Mobile Tech Lead",
+    "worksFor": {
+      "@type": "Organization",
+      "name": "ADEO"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Lille",
+      "addressCountry": "FR"
+    },
+    "sameAs": ["https://www.linkedin.com/in/mehdi-brahmi/"],
+    "knowsAbout": ["Mobile development", "Android", "Kotlin", "Flutter", "Jetpack Compose", "Kotlin Multiplatform"]
+  }
+  </script>
+</body>
+</html>
